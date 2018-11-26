@@ -60,14 +60,14 @@ int main()
 
 int n;
 //variation of n
-n=5;
+n=4;
    int arr[n];
 
    // int arr_size = sizeof(arr)/sizeof(arr[0]);
 cout<<"now the array from the file"<<endl;
 
 ifstream myReadFile;
-myReadFile.open("text.txt");
+myReadFile.open("inversoInt.txt");
 
 for(int i=0;i<n;i++){
 
@@ -81,7 +81,7 @@ myReadFile.close();
 //sorting method and clocks per ms (*1000)
 int start_s=clock();
 
-    heapSort(arr,n-1);
+    heapSort(arr,n);
 
 int stop_s=clock();
 cout << "time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << "ms"<<endl;

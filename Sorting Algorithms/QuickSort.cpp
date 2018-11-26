@@ -61,14 +61,14 @@ int main()
 {
 int n;
 //variation of n
-n=5;
+n=4;
    int arr[n];
 
    // int arr_size = sizeof(arr)/sizeof(arr[0]);
 cout<<"now the array from the file"<<endl;
 
 ifstream myReadFile;
-myReadFile.open("text.txt");
+myReadFile.open("inversoInt.txt");
 
 for(int i=0;i<n;i++){
 
