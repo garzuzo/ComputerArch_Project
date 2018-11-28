@@ -175,7 +175,7 @@ int main()
 
 //CAMBIO
 pc="PC C";
-  tipoOrdenamiento="MergeSort";
+  tipoOrdenamiento="QuickSort";
 replica=1;
 
 string text=".txt";
