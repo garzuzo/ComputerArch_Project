@@ -11,6 +11,9 @@ using namespace std;
 
 // To heapify a subtree rooted with node i which is
 // an index in arr[]. n is size of heap
+
+#define GetSize(array_enteros) (sizeof(array_enteros)/sizeof(*(array_enteros)))
+
 void heapify(int arr[], int n, int i)
 {
     int largest = i; // Initialize largest as root
@@ -71,42 +74,44 @@ pc="PC C";
   tipoOrdenamiento="HeapSort";
 replica=1;
 
+string text=".txt";
 
 
-
-int[] tam;
-tam={1000,2000,3000,4000,5000};
-string[] arrTipoOrd;
-arrTipoOrd={"inverso","aleatorio","pseudo"};
-string[] arrTipoDato;
-arrTipoDato={"FLOAT","DOUBLE","INTEGER"};
+int tam[6]={1000,2000,3000,4000,5000,4};
+string arrTipoOrd[3]={"inverso","aleatorio","pseudo"};
+string arrTipoDato[3]={"FLOAT","DOUBLE","INTEGER"};
 
 
 
 string csv;
 
 
-for(int j=0; j< tam.length ;j++){
+for(int j=0; j <GetSize(tam) ;j++){
 
 int n=tam[j];
 
-for(int k=0;k<arrTipoOrd.length;k++){
+for(int k=0;k<GetSize(arrTipoOrd);k++){
     string tipoOrd = arrTipoOrd[k];
 
-for(int w=0;w<arrTipoDato.length;w++){
+for(int w=0;w<GetSize(arrTipoDato);w++){
     string tipoDato = arrTipoDato[w];
 
-    int[] arrInt;
-    float[] arrFloat;
-    double[] arrDouble;
+    int arrInt[n];
+    float arrFloat[n];
+    double arrDouble[n];
 
 
 
 
-if(tipoDato.equals("FLOAT")){
+if(tipoDato.compare("FLOAT")){
 
     ifstream myReadFile;
-myReadFile.open(tipoOrd+tipoDato+n+".txt");
+    string ruta;
+    ruta.append(tipoOrd);
+    ruta.append(tipoDato);
+    ruta.append(to_string(n));
+    ruta.append(text);
+    myReadFile.open(ruta);
 
 for(int i=0;i<n;i++){
 
@@ -119,11 +124,15 @@ myReadFile.close();
 
 }
 
-else if(tipoDato.equals("DOUBLE")){
+else if(tipoDato.compare("DOUBLE")){
 
    ifstream myReadFile;
-myReadFile.open(tipoOrd+tipoDato+n+".txt");
-
+   string ruta;
+    ruta.append(tipoOrd);
+    ruta.append(tipoDato);
+    ruta.append(to_string(n));
+    ruta.append(text);
+    myReadFile.open(ruta);
 for(int i=0;i<n;i++){
 
     myReadFile >> arrDouble[i];
@@ -135,10 +144,14 @@ myReadFile.close();
 
 }
 
-else if(tipoDato.equals("INTEGER")){
+else if(tipoDato.compare("INTEGER")){
 
-   ifstream myReadFile;
-myReadFile.open(tipoOrd+tipoDato+n+".txt");
+   ifstream myReadFile;string ruta;
+    ruta.append(tipoOrd);
+    ruta.append(tipoDato);
+    ruta.append(to_string(n));
+    ruta.append(text);
+    myReadFile.open(ruta);
 
 for(int i=0;i<n;i++){
 
@@ -158,7 +171,7 @@ myReadFile.close();
 
 for(int z=0;z<3;z++){
 
-if(tipoDato.equals("FLOAT")){
+if(tipoDato.compare("FLOAT")){
 
 int start_s=clock();
 
@@ -168,7 +181,7 @@ int stop_s=clock();
 
 cout << pc+";"+n+";"+tipoOrdenamiento+";"+tipoDato+";"+tipoOrd+";"+replica+";"<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
 
-}else if(tipoDato.equals("DOUBLE")){
+}else if(tipoDato.compare("DOUBLE")){
 
 int start_s=clock();
 
@@ -178,7 +191,7 @@ int stop_s=clock();
 cout << pc+";"+n+";"+tipoOrdenamiento+";"+tipoDato+";"+tipoOrd+";"+replica+";"<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
 
 
-}else if(tipoDato.equals("INTEGER")){
+}else if(tipoDato.compare("INTEGER")){
 
 int start_s=clock();
 
