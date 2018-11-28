@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<fstream>
 #include <string>
+#include <time.h>
 using namespace std;
   //TO COMPILE:
 //1. g++ <name>.cpp
@@ -160,7 +161,7 @@ replica=1;
 string text=".txt";
 
 
-int tam[6]={1000,2000,3000,4000,5000,4};
+int tam[6]={20000,100000,800000,5000000,50000000,85000000};
 string arrTipoOrd[3]={"inverso","aleatorio","pseudo"};
 string arrTipoDato[3]={"FLOAT","DOUBLE","INTEGER"};
 
