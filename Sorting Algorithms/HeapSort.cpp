@@ -56,6 +56,89 @@ void heapSort(int arr[], int n)
     }
 }
 
+void heapify(float arr[], int n, int i)
+{
+    int largest = i; // Initialize largest as root
+    int l = 2*i + 1; // left = 2*i + 1
+    int r = 2*i + 2; // right = 2*i + 2
+
+    // If left child is larger than root
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    // If right child is larger than largest so far
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    // If largest is not root
+    if (largest != i)
+    {
+        swap(arr[i], arr[largest]);
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
+    }
+}
+
+// main function to do heap sort
+void heapSort(float arr[], int n)
+{
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from heap
+    for (int i=n-1; i>=0; i--)
+    {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+
+        // call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+void heapify(double arr[], int n, int i)
+{
+    int largest = i; // Initialize largest as root
+    int l = 2*i + 1; // left = 2*i + 1
+    int r = 2*i + 2; // right = 2*i + 2
+
+    // If left child is larger than root
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    // If right child is larger than largest so far
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    // If largest is not root
+    if (largest != i)
+    {
+        swap(arr[i], arr[largest]);
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
+    }
+}
+
+// main function to do heap sort
+void heapSort(double arr[], int n)
+{
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from heap
+    for (int i=n-1; i>=0; i--)
+    {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+
+        // call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
 
 int main()
 {
@@ -146,7 +229,8 @@ myReadFile.close();
 
 else if(tipoDato.compare("INTEGER")){
 
-   ifstream myReadFile;string ruta;
+   ifstream myReadFile;
+   string ruta;
     ruta.append(tipoOrd);
     ruta.append(tipoDato);
     ruta.append(to_string(n));
@@ -175,31 +259,71 @@ if(tipoDato.compare("FLOAT")){
 
 int start_s=clock();
 
-   heapSort(arrFloat[], n);
+   heapSort(arrFloat, n);
 
 int stop_s=clock();
 
-cout << pc+";"+n+";"+tipoOrdenamiento+";"+tipoDato+";"+tipoOrd+";"+replica+";"<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
+ string ruta;
+    ruta.append(pc);
+    ruta.append(";");
+    ruta.append(to_string(n));
+    ruta.append(";");
+    ruta.append(tipoOrdenamiento);
+    ruta.append(";");
+    ruta.append(tipoDato);
+    ruta.append(";");
+    ruta.append(tipoOrd);
+    ruta.append(";");
+    ruta.append(to_string(replica));
+    ruta.append(";");
+
+cout << ruta<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
 
 }else if(tipoDato.compare("DOUBLE")){
 
 int start_s=clock();
 
-  heapSort(arrDouble[], n);
+  heapSort(arrDouble, n);
 
 int stop_s=clock();
-cout << pc+";"+n+";"+tipoOrdenamiento+";"+tipoDato+";"+tipoOrd+";"+replica+";"<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
+ string ruta;
+    ruta.append(pc);
+    ruta.append(";");
+    ruta.append(to_string(n));
+    ruta.append(";");
+    ruta.append(tipoOrdenamiento);
+    ruta.append(";");
+    ruta.append(tipoDato);
+    ruta.append(";");
+    ruta.append(tipoOrd);
+    ruta.append(";");
+  ruta.append(to_string(replica));
+    ruta.append(";");
 
+cout << ruta<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
 
 }else if(tipoDato.compare("INTEGER")){
 
 int start_s=clock();
 
-  heapSort(arrInt[], n);
+  heapSort(arrInt, n);
 
 int stop_s=clock();
-cout << pc+";"+n+";"+tipoOrdenamiento+";"+tipoDato+";"+tipoOrd+";"+replica+";"<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
+ string ruta;
+    ruta.append(pc);
+    ruta.append(";");
+    ruta.append(to_string(n));
+    ruta.append(";");
+    ruta.append(tipoOrdenamiento);
+    ruta.append(";");
+    ruta.append(tipoDato);
+    ruta.append(";");
+    ruta.append(tipoOrd);
+    ruta.append(";");
+      ruta.append(to_string(replica));
+    ruta.append(";");
 
+cout << ruta<< (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000<<endl;
 
 }
 }
